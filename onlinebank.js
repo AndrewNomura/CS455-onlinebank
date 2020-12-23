@@ -619,7 +619,7 @@ app.post("/register", function(req, res){
 	}
 	else
 	{
-		res.send("asswords do not match<br><br><a href='/register'>Try Again</a>");
+		res.send("Passwords do not match<br><br><a href='/register'>Try Again</a>");
 	}
 });
 
