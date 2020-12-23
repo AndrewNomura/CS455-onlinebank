@@ -242,6 +242,11 @@ app.get("/Withdraw", function(req, res){
 				pageStr += "								<select name = 'Account' placeholder='Account' required>"
 
 				let newData = JSON.parse(data);
+				if(amount === NaN || amount===Infinity || amount<=0 || amount>=10000)
+				{
+					res.send("Invalid amount selected!");
+					return;
+				}
 
 				for(let i=0; i<newData.users[userIndex].accounts.length; i++)
 				{
@@ -288,7 +293,7 @@ app.post("/Withdraw", function(req, res){
 			let amount = xssFilters.inHTMLData(req.body.withdraw);
 			let currentBalance = newData.users[userIndex].accounts.initialBalance;
 
-			if(amount === NaN || amount===Infinity || amount<=0 || (currentBalance-amount < 0))
+			if(amount === NaN || amount===Infinity || amount<=0 || amount >=10000 || (currentBalance-amount < 0))
 			{
 				res.send("Invalid amount selected!");
 				return;
@@ -607,16 +612,14 @@ app.post("/register", function(req, res){
 				})
 				
 			});
-			
 		}
 		else {
-			console.log("Password must meet requirements...");
-			res.send(__dirname+"/register.html")
+			res.send("Passwords do not match<br><br><a href='/register'>Try Again</a>");
 		}
 	}
 	else
 	{
-		res.send("Passwords do not match!");
+		res.send("asswords do not match<br><br><a href='/register'>Try Again</a>");
 	}
 });
 
