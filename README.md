@@ -28,9 +28,8 @@ Packages required:
 -express-session
 
 
+
+![](images/login.png)
+![](images/registration.png)
 ![](images/homepage.png)
 
-
-
-
-![](images/registration.png)
