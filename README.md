@@ -28,4 +28,4 @@ Packages required:
 -express-session
 
 
-![](images/RegistrationPicture.png)
+![](images/registration.png)
